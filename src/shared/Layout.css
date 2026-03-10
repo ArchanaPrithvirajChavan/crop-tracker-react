@@ -1,0 +1,22 @@
+/* Layout container for the whole app */
+.layout-container {
+  min-height: 100vh;
+  flex-direction: column;
+margin-top: 20px;
+}
+
+
+/* Main content area where pages render */
+.main-content {
+  flex: 1;
+  padding: 20px 40px;
+  margin-top: 70px;
+}
+
+
+/* Optional: make pages look centered */
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  
+}

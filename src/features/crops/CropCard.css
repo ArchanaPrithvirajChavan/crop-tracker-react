@@ -1,0 +1,48 @@
+.crop-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.crop-card h3 {
+  margin-bottom: 8px;
+  
+}
+
+.crop-card p {
+  margin: 3px 0;
+}
+
+.btn-edit, .btn-details {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #FF5722;
+}
+
+.btn-details {
+  background-color: #2196F3;
+}
+
+.crop-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.crop-label {
+  font-weight: 600;
+}
+
+.crop-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
