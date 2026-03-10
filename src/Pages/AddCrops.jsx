@@ -15,7 +15,7 @@ function AddCropPage() {
     const updatedCrops = [...crops, cropWithId];
     setCrops(updatedCrops);
     localStorage.setItem("crops", JSON.stringify(updatedCrops));
-    alert("Crop added successfully!"); // optional
+    alert("Crop added successfully!"); 
   };
 
   return (

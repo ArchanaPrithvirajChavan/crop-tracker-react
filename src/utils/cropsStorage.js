@@ -21,3 +21,10 @@ export const addOrEditCrop = (crop) => {
     saveCrops(crops);
   }
 };
+export const deleteCrop = (id) => {
+  const crops = getCrops();
+  const updatedCrops = crops.filter((crop) => crop.id !== id);
+  localStorage.setItem("crops", JSON.stringify(updatedCrops));
+
+  window.dispatchEvent(new Event("cropsUpdated"));
+};
