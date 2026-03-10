@@ -1,17 +1,20 @@
-// src/pages/Crops.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CropList from "../features/crops/CropList";
-import { cropsData } from "../data/CropsData"; // mock data
+import { getCrops } from "../utils/cropsStorage"; // use localStorage
 import "./Crops.css";
 
 const Crops = () => {
   const [crops, setCrops] = useState([]);
 
+  // Load crops from localStorage and listen for updates
   useEffect(() => {
-    // Load crops (replace with API or LocalStorage)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setCrops(cropsData);
+    setCrops(getCrops());
+
+    const handleUpdate = () => setCrops(getCrops());
+    window.addEventListener("cropsUpdated", handleUpdate);
+
+    return () => window.removeEventListener("cropsUpdated", handleUpdate);
   }, []);
 
   return (

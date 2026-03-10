@@ -55,15 +55,17 @@
   
 }
 .form-group{
-  padding-top: 50px; 
+   
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 25px;
   max-width: 1200px;
-  margin-left: 350px;
+  margin-left: 250px;
   color: #4CAF50;
+  
 }
 .btn-submit {
   color: #45a049;
-  float: right;  
-  margin-top: 15px; 
+  float: right; 
+  margin-top: 1px; 
+
 }

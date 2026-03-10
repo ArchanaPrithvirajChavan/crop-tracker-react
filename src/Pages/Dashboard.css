@@ -1,11 +1,5 @@
 /* Dashboard main container */
-.dashboard-container {
-  padding-top: 250px; 
-  padding-left: 30px;
-  padding-right: 30px;
-  max-width: 1200px;
-  margin: auto;
-}
+
 
 /* Dashboard title */
 .dashboard-container h1 {

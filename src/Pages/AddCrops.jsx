@@ -1,29 +1,29 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import CropForm from "../features/crops/CropForm";
+function AddCropPage() {
+  const [crops, setCrops] = useState([]);
 
-const AddCrop = () => {
-  const navigate = useNavigate();
+  // Load existing crops from localStorage
+  useEffect(() => {
+    const savedCrops = JSON.parse(localStorage.getItem("crops")) || [];
+    setCrops(savedCrops);
+  }, []);
 
+  // Handle new crop submission
   const handleAddCrop = (newCrop) => {
-    // For now we just log the crop
-    console.log("New Crop Added:", newCrop);
-
-    // Later you can save to LocalStorage or Airtable here
-
-    alert("Crop added successfully!");
-
-    // Redirect to crops page
-    navigate("/crops");
+    const cropWithId = { ...newCrop, id: Date.now() };
+    const updatedCrops = [...crops, cropWithId];
+    setCrops(updatedCrops);
+    localStorage.setItem("crops", JSON.stringify(updatedCrops));
+    alert("Crop added successfully!"); // optional
   };
 
   return (
     <div>
-      <h1>Add New Crop</h1>
-
+      <h1>Add Crop</h1>
       <CropForm onSubmit={handleAddCrop} />
     </div>
   );
-};
+}
 
-export default AddCrop;
+export default AddCropPage;

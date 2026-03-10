@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CropForm from "../features/crops/CropForm";
-import { cropsData } from "../data/CropsData";
+import { getCrops, addOrEditCrop } from "../utils/cropsStorage";
 
 const EditCrop = () => {
   const { id } = useParams();
@@ -10,19 +9,16 @@ const EditCrop = () => {
   const [crop, setCrop] = useState(null);
 
   useEffect(() => {
-    const foundCrop = cropsData.find((c) => c.id === Number(id));
+    const crops = getCrops(); // read from localStorage
+    const foundCrop = crops.find((c) => c.id === Number(id));
     setCrop(foundCrop);
   }, [id]);
 
   const handleUpdate = (updatedCrop) => {
-    const index = cropsData.findIndex((c) => c.id === Number(id));
-
-    if (index !== -1) {
-      cropsData[index] = { ...cropsData[index], ...updatedCrop };
-      alert("Crop Updated Successfully!");
-
-      navigate(`/crops/${id}`);
-    }
+    updatedCrop.id = Number(id); // ensure ID stays the same
+    addOrEditCrop(updatedCrop);  // updates localStorage and triggers event
+    alert("Crop Updated Successfully!");
+    navigate("/crops"); // go back to Crops page
   };
 
   if (!crop) {
