@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CropForm.css";
 
 function CropForm({ initialData = {}, onSubmit }) {
+
   const [formData, setFormData] = useState({
-    cropName: "",
-    field: "",
-    plantingDate: "",
-    harvestDate: "",
-    status: "Planted",
-    notes: "",
+    cropName: initialData.cropName || "",
+    field: initialData.field || "",
+    plantingDate: initialData.plantingDate || "",
+    harvestDate: initialData.harvestDate || "",
+    status: initialData.status || "Planted",
+    notes: initialData.notes || "",
   });
 
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    if (initialData && Object.keys(initialData).length > 0) {
-      setFormData({
-        cropName: initialData.cropName || "",
-        field: initialData.field || "",
-        plantingDate: initialData.plantingDate || "",
-        harvestDate: initialData.harvestDate || "",
-        status: initialData.status || "Planted",
-        notes: initialData.notes || "",
-      });
-    }
-  }, [initialData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,11 +31,14 @@ function CropForm({ initialData = {}, onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
+
     onSubmit(formData);
+
     setFormData({
       cropName: "",
       field: "",
@@ -55,7 +46,7 @@ function CropForm({ initialData = {}, onSubmit }) {
       harvestDate: "",
       status: "Planted",
       notes: "",
-    }); // optional: reset form
+    });
   };
 
   return (

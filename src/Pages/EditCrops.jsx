@@ -15,10 +15,10 @@ const EditCrop = () => {
   }, [id]);
 
   const handleUpdate = (updatedCrop) => {
-    updatedCrop.id = Number(id); // ensure ID stays the same
+    updatedCrop.id = Number(id); 
     addOrEditCrop(updatedCrop);  // updates localStorage and triggers event
     alert("Crop Updated Successfully!");
-    navigate("/crops"); // go back to Crops page
+    navigate("/crops"); 
   };
 
   if (!crop) {

@@ -2,7 +2,8 @@
 .crops-page {
   padding: 20px;
   position: relative; 
-  min-height: 100vh;  
+  min-height: 100vh;
+  margin-left: 10%;  
 }
 /* All Crops title */
 .crops-header h1 {
@@ -33,18 +34,28 @@
 .btn-add:hover {
   background-color: #45a049;
 }
+/* Dashboard Container using Flexbox */
 .dashboard-container {
-  padding-top: 50px; 
-  padding-left: 30px;
-  padding-right: 30px;
-  max-width: 1200px;
-  margin: auto;
+      
+  padding: 50px 30px 30px 30px;  
+  max-width: 1200px;              
+  margin-left: 10%;                
+                      
 }
 .dashboard-container h1 {
   font-size: 2em;
   line-height: 1.1;
   margin-top: 80px;
   text-align: center;
+  color: #45a049;
+  
+}
+.dashboard-container h2 {
+  font-size: 2em;
+  line-height: 1.1;
+  margin-top: 10px;
+  text-align:left;
+  color: #ff71bf;
   
 }
 .main-content h1{
@@ -54,18 +65,20 @@
   text-align: center; 
   
 }
-.form-group{
-   
-  padding-left: 30px;
-  padding-right: 25px;
-  max-width: 1200px;
-  margin-left: 250px;
-  color: #4CAF50;
-  
-}
-.btn-submit {
-  color: #45a049;
-  float: right; 
-  margin-top: 1px; 
+.form-group input,
 
+.form-group select {
+  width:100%;              
+  padding: 6px 10px;      
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing:content-box; 
+    /
+}
+
+
+.form-group textarea {
+  height: 25px;             
+  resize: vertical;         
 }
