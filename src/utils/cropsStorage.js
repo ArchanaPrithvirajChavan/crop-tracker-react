@@ -1,4 +1,4 @@
-import { cropsData } from "./data/CropsData";
+import { cropsData } from "../data/CropsData";
 
 // Get crops
 export const getCrops = () => {

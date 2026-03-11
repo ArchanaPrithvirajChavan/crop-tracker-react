@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CropCard from "./CropCard";
 import { deleteCrop } from "../../utils/cropsStorage";
-import "./CropList.css";
 
 const CropList = ({ crops }) => {
 

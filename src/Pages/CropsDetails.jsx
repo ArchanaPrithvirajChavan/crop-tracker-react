@@ -1,8 +1,7 @@
 // src/pages/CropDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { cropsData } from "./data/CropsData"; 
-import "./CropDetails.css";
+import * as CropsData from "../data/CropsData"; 
 
 const CropDetails = () => {
   const { id } = useParams(); // Get crop ID from URL
@@ -10,7 +9,7 @@ const CropDetails = () => {
 
   useEffect(() => {
     // Fetch crop from mock data
-    const foundCrop = cropsData.find((c) => c.id === id);
+    const foundCrop = CropsData.cropsData.find((c) => c.id === id);
     setCrop(foundCrop || null);
   }, [id]);
 
